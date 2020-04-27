@@ -8,7 +8,7 @@ import { IPayloadPeliculaById } from './ipayload-pelicula-by-id';
 })
 export class PeliculasService {
 
-  private BaseUrl = 'http://www.omdbapi.com/';
+  private BaseUrl = 'https://www.omdbapi.com/';
   private ApiKey = 'cd40e894';
 
   constructor(private http: HttpClient) { }
