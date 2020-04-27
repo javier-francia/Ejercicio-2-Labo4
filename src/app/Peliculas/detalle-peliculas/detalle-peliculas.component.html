@@ -1,0 +1,26 @@
+<div class="contenido" *ngIf="datosPelicula !== undefined">
+    <div *ngIf="datosPelicula.Title != 'N/A'">
+        <h4>Titulo</h4>
+        <p>{{datosPelicula.Title}}</p>
+    </div>
+    <div *ngIf="datosPelicula.Year != 'N/A'">
+        <h4>Año</h4>
+        <p>{{datosPelicula.Year}}</p>
+    </div>
+    <div *ngIf="datosPelicula.Runtime != 'N/A'">
+        <h4>Duracion</h4>
+        <p>{{datosPelicula.Runtime}}</p>
+    </div>
+    <div *ngIf="datosPelicula.Director != 'N/A'">
+        <h4>Director</h4>
+        <p>{{datosPelicula.Director}}</p>
+    </div>
+    <div *ngIf="datosPelicula.Language != 'N/A'">
+        <h4>Idioma/s</h4>
+        <p>{{datosPelicula.Language}}</p>
+    </div>
+    <div *ngIf="datosPelicula.imdbRating != 'N/A'">
+        <h4>Rating IMDB</h4>
+        <p>{{datosPelicula.imdbRating}}</p>
+    </div>
+</div>

@@ -1,0 +1,23 @@
+<app-listado-peliculas  (searchFilters)="OnSearchClicked($event)"
+                        [listadoPeliculasMostrar]="arrayPeliculas"
+                        (peliculaDetails)="OnPeliculaParaDetallar($event)"
+                        [totalResultados]="totalResults"></app-listado-peliculas>
+
+<!-- Modal -->
+<button type="button" class="btn btn-success btn-lg" data-toggle="modal" data-target="#detallesModal" id="btnModal"></button>
+<div class="modal fade" id="detallesModal" tabindex="-1" role="dialog">
+    <div class="modal-dialog modal-dialog-centered" role="document">
+        <div class="modal-content">
+        <div class="modal-header">
+            <h5 class="modal-title">Detalles de la película</h5>
+            <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+            </button>
+        </div>
+        <div class="modal-body">
+            <div *ngIf="peliculaParaDetallar !== undefined">
+                <app-detalle-peliculas [idPelicula]="peliculaParaDetallar"></app-detalle-peliculas>
+            </div>
+        </div>
+    </div>
+</div>

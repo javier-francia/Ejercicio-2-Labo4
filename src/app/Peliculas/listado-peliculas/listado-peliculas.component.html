@@ -1,0 +1,39 @@
+<nav class="navbar navbar-light bg-light">
+    <h3 class="navbar-brand">Busqueda de películas</h3>
+    <div class="form-inline my-2 my-lg-0">
+        <input class="form-control mr-sm-2" type="text" placeholder="Titulo (obligatorio)" aria-label="Titulo" [(ngModel)]="titleFilter">
+        <input class="form-control mr-sm-2" type="text" placeholder="Año" aria-label="Año" [(ngModel)]="yearFilter">
+        <input (click)="EnviarFiltros()" class="btn btn-outline-success my-2 my-sm-0" type="button" value="Buscar">
+    </div>
+</nav>
+
+<div class="container">
+    <div class="row" *ngIf="listadoPeliculasMostrar.length > 0">
+        <div class="cantidadResultados"><h3 *ngIf="totalResultados > 10">Mostrando 10 peliculas de {{totalResultados}} encontradas. Por favor refine su busqueda.</h3></div>
+        <div class="cantidadResultados"><h3 *ngIf="totalResultados <= 10">Mostrando {{totalResultados}} peliculas.</h3></div>
+        <div class="col-md-4" *ngFor="let pelicula of listadoPeliculasMostrar">
+            <div class="card mb-4 shadow-sm">
+                <img *ngIf="pelicula.Poster != 'N/A'"
+                        [src]="pelicula.Poster"
+                        [style.width.%]="imgWidth"
+                        [style.width.%]="imgHeight">
+                <img *ngIf="pelicula.Poster == 'N/A'"   
+                        [src]="NA"
+                        [style.width.%]="imgWidth"
+                        [style.width.%]="imgHeight">
+                <div class="card-body">
+                    <p class="card-text">{{pelicula.Title}}</p>
+                    <p class="card-text">Año: {{pelicula.Year}}</p>
+                    <div class="d-flex justify-content-between align-items-center">
+                        <input (click)="OnPeliculaDetails(pelicula.imdbID)" class="btn btn-sm btn-outline-secondary" type="button" value="Ver detalles">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="row notfound" *ngIf="!firstSearch && listadoPeliculasMostrar.length == 0">
+        <h3>No se encontraron peliculas para mostrar.</h3>
+    </div>
+</div>
+
+  
